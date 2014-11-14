@@ -1,0 +1,39 @@
+tar zxvf  openssl-1.0.1e.tar.gz 
+cd openssl-1.0.1e
+./config shared --prefix=/usr --openssldir=/usr/ssl 
+make && make install 
+
+如果pod2man报错： rm /usr/bin/pod2man
+cd ..
+
+tar zxvf libevent-2.0.12-stable.tar.gz 
+cd libevent-2.0.12-stable
+./configure --prefix=/usr 
+make && make install 
+cd ..
+
+tar xzvf cmake-2.8.10.2.tar.gz 
+cd cmake-2.8.10.2
+./bootstrap --prefix=/usr 
+make && make install
+cd ..
+
+tar xzvf libevhtp-1.2.6.tar.gz
+cd libevhtp-1.2.6/
+cmake -DCMAKE_PREFIX_PATH=/usr -DCMAKE_INSTALL_PREFIX=/usr  -DLIBEVENT_OPENSSL_LIBRARY=/usr/lib/openssl
+make && make install
+cd ..
+
+tar zxvf tokyocabinet-1.4.47.tar.gz
+cd tokyocabinet-1.4.47
+./configure  
+make && make install
+cd ..
+
+
+备注：
+如果zlib.h,
+apt-get insatll zlib1g-dev
+入编bzlib.h
+sudo apt-get install libbz2-dev
+
